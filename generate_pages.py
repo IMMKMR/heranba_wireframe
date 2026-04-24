@@ -407,7 +407,7 @@ base_html = """<!DOCTYPE html>
 <head>
     <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PAGE_TITLE - Heranba Wireframe</title>
-    <link rel="stylesheet" href="../style.css">
+    <link rel="stylesheet" href="../style.css?v=1.1">
 </head>
 <body>
     <div class="wireframe-container">

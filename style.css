@@ -139,13 +139,15 @@ nav > .nav-item > a .caret {
    FOOTER (Wireframe Style)
    ===================== */
 .footer-wireframe {
-    background: var(--box-color);
+    background: var(--box-color) !important;
+    color: #000 !important;
     border: 2px solid #000;
     border-radius: 0px;
     padding: 40px;
     margin: 40px;
     position: relative;
     box-shadow: 8px 8px 0px #000;
+    display: block !important;
 }
 
 .footer-main-grid {
