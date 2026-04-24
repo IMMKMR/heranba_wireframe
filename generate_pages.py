@@ -3,51 +3,106 @@ import os
 output_dir = r"f:\COVANA\Heranba\wireframes\pages"
 if not os.path.exists(output_dir): os.makedirs(output_dir)
 
+# -----------------------------------------------------------------------
+# PAGE ARCHITECTURE (matches PDF sitemap)
+# - Single pages: all sections render on ONE page as scrollable sections
+# - Hub/Multi pages: the hub page + each item is its own .html file
+# -----------------------------------------------------------------------
+
 pages_config = {
-    "home": ["Hero Showcase", "Introduction to Heranba", "Our key features", "Explore our latest updates", "Contact us for more information", "Downloads", "Blogs and Articles"],
-    "farmer_corner": ["Farmer Corner Hub", "Crop Advisory", "Pest & Diseases Guide", "Crop Calendars", "Farmer Portal", "Join Heranba Farmer Community"],
-    "market_information": ["Market Information Overview", "Mandi Prices", "Weather Forecasts", "Government Schemes", "Case Studies"],
-    "media_resources": ["Media Hub", "Video Gallery", "Photo Gallery", "Events Calendar", "News & Updates", "Press Releases", "Media Contact", "Blogs & Articles", "Downloads"],
-    "products": ["Products Master", "Formulations", "Intermediates", "Technicals", "Explore Brands"],
-    "facilities": ["Manufacturing Excellence", "Overview of Facilities", "Manufacturing Facilities", "Research & Development", "Quality Control", "Future Scope"],
-    "knowledge_centre": ["Knowledge Hub", "Expert Articles", "Video Library", "Training Materials", "FAQs on knowledge resources", "About the Knowledge Centre", "Contact for more info"],
-    "about_us": ["Our Legacy", "Our Story", "Corporate Film", "Global Presence", "Leadership Team", "Meet the Management", "Awards & Recognitions", "News and Articles"],
-    "investor_relations": ["Investor Hub", "Financials Overview", "Disclosures & Announcements", "Corporate Governance", "Stock Information"],
-    "contact": ["Get in Touch", "Corporate Office", "Regional Offices", "Dealer Enquiry", "Customer Support", "Investor Contact"],
-    "careers": ["Careers at Heranba", "Life at Heranba", "Why Heranba", "Open Positions", "Apply for a Job", "Employee Stories", "Contact HR"],
-    
-    # Sub-Pages
-    "crop_advisory": ["Agricultural Advice", "Resources", "Expert Consultations"],
-    "pest_diseases_guide": ["Management Strategies", "Identification", "Prevention"],
-    "crop_calendars": ["Sowing Schedules", "Harvesting Periods"],
-    "farmer_portal": ["Farmer Portal Dashboard", "Farmer Programs", "Farmer Testimonials", "Success Stories", "Contests", "Recognition Awards", "Heranba Farmer Community"],
-    "mandi_prices": ["Mandi Price Insights", "Mandi Prices Updates", "Price Comparison", "Historical Trends"],
-    "weather_forecasts": ["Weather Forecast Hub", "Daily Updates", "Weather Tips", "Seasonal Outlook"],
-    "government_schemes": ["Govt Schemes List", "Available Schemes", "Assistance Programs", "Success Stories"],
-    "case_studies": ["Case Studies Archive", "Project A", "Project B", "Analysis"],
-    "formulations": ["Formulations Overview", "Crop Nutrition", "Fungicides", "Herbicides", "Insecticides", "Public Health"],
-    "expert_articles": ["Expert Insights", "Featured", "Popular", "Contribute"],
-    "video_library": ["Video Resources", "Categories", "Featured Videos", "Request Demo"],
-    "training_materials": ["Learning Modules", "Course Intro", "Modules List"],
-    "news_and_articles": ["News Archive", "Recent News", "Industry Articles", "Subscribe"],
-    "management_team": ["Leadership Profiles", "Philosophy", "Profiles", "Structure"],
-    "financials_overview": ["Financial Performance", "Annual Reports", "Quarterly Results", "Highlights"],
-    "disclosures_announcements": ["Investor Disclosures", "Filings", "Press Releases", "Statutory"],
-    "corporate_governance": ["Governance Framework", "Board", "Committees", "Policies", "Code"],
-    "stock_information": ["Stock Market Data", "Price Chart", "Shareholding", "Dividends"],
-    "contests": ["Farmer Contests", "Upcoming", "Past Winners", "Rules"],
-    "recognition_awards": ["Award Recognition", "Categories", "Nomination", "Recipients"],
-    "heranba_farmer_community": ["Community Forum", "Events", "Networking", "Join"],
-    "crop_nutrition": ["Nutrition Solutions", "Bio Stimulant", "Bio Fertilizer", "Micro Nutrient Fertilizer", "Water Soluble Fertilizer", "PGR"],
-    "fungicides": ["Fungicide Range", "Showcases", "Innovations", "Inquiry"],
-    "herbicides": ["Herbicide Range", "Showcases", "Innovations", "Inquiry"],
+    # ── SINGLE PAGES (no child pages in nav) ───────────────────────────
+    "home": [
+        "Hero Showcase", "Introduction to Heranba", "Key Features",
+        "Latest Updates", "Contact Us", "Downloads", "Blogs & Articles"
+    ],
+
+    # Media & Resources = ONE combined page with its own sections
+    "media_resources": [
+        "Video Gallery", "Photo Gallery", "Events Calendar", 
+        "News & Updates", "Press Releases", "Media Contact",
+        "Blogs & Articles", "Downloads"
+    ],
+
+    "contact": [
+        "Get in Touch", "Corporate Office", "Regional Offices",
+        "Dealer Enquiry", "Customer Support", "Investor Contact"
+    ],
+
+    "investor_relations": [
+        "Financials Overview", "Disclosures & Announcements", 
+        "Corporate Governance", "Stock Information"
+    ],
+
+    "careers": [
+        "Life at Heranba", "Why Heranba", "Open Positions", 
+        "Apply for a Job", "Employee Stories", "Contact HR"
+    ],
+
+    # ── HUB PAGES (each child below is its own .html file) ─────────────
+
+    # Products hub
+    "products": ["Products Overview", "Formulations", "Intermediates", "Technicals", "Explore Brands"],
+
+    # Products sub-pages
+    "formulations":  ["Formulations Overview", "Crop Nutrition", "Fungicides", "Herbicides", "Insecticides", "Public Health"],
+    "intermediates": ["Intermediates Overview", "Showcase", "Technical Specs", "Inquiry"],
+    "technicals":    ["Technicals Overview",    "Showcase", "Technical Specs", "Inquiry"],
+    "crop_nutrition": ["Crop Nutrition Hub", "Bio Stimulant", "Bio Fertilizer", "Micro Nutrient Fertilizer", "Water Soluble Fertilizer", "PGR"],
+    "bio_stimulant":           ["Bio Stimulants",      "Intro", "Products", "Usage"],
+    "bio_fertilizer":          ["Bio Fertilizer",      "Intro", "Products", "Usage"],
+    "micro_nutrient_fertilizer": ["Micro Nutrients",   "Intro", "Products", "Usage"],
+    "water_soluble_fertilizer": ["Water Soluble Fert.", "Intro", "Products", "Usage"],
+    "pgr":         ["PGR Expert Guide",   "About", "Products", "Benefits", "Usage", "FAQs", "Contact"],
+    "fungicides":  ["Fungicide Range",    "Showcases", "Innovations", "Inquiry"],
+    "herbicides":  ["Herbicide Range",    "Showcases", "Innovations", "Inquiry"],
     "insecticides": ["Insecticide Range", "Showcases", "Innovations", "Inquiry"],
     "public_health": ["Public Health Solutions", "Solutions", "Measures", "Learn"],
-    "pgr": ["PGR Expert Guide", "About", "Products", "Benefits", "Usage", "FAQs", "Contact"],
-    "water_soluble_fertilizer": ["WSF Products", "Intro", "Products", "Usage"],
-    "micro_nutrient_fertilizer": ["Micro Nutrients", "Intro", "Products", "Usage"],
-    "bio_fertilizer": ["Bio Solutions", "Intro", "Products", "Usage"],
-    "bio_stimulant": ["Bio Stimulants", "Intro", "Products", "Usage"]
+
+    # Farmer Corner hub
+    "farmer_corner": ["Farmer Corner Hub", "Market Information", "Farmer Portal", "Crop Calendars", "Pest & Diseases Guide", "Crop Advisory"],
+
+    # Market Information hub
+    "market_information": ["Market Overview", "Mandi Prices", "Weather Forecasts", "Government Schemes", "Case Studies"],
+    "mandi_prices": ["Mandi Prices Update", "Price Trends", "Market Arrivals"],
+    "weather_forecasts": ["Weather Forecast", "Local Updates", "Agriculture Tips"],
+    "government_schemes": ["Govt Schemes Hub", "Financial Assistance", "Subsidies"],
+    "case_studies": ["Success Implementations", "Farmer Stories", "Outcomes"],
+
+    # Farmer Portal hub (7 sub-pages)
+    "farmer_portal": ["Portal Hub", "Contests", "Farmer Programs", "Recognition Awards", "Farmer Community", "Farmer Testimonials", "Success Stories", "Member Log-in"],
+    "contests": ["Farmer Contests", "Current Contests", "Rules", "Prizes"],
+    "farmer_programs": ["Farmer Programs", "Training", "Development", "Support"],
+    "recognition_awards": ["Farmer Awards", "Nomination", "Winners"],
+    "heranba_farmer_community": ["Community Hub", "Forums", "Networking", "Events"],
+    "farmer_testimonials": ["Farmer Testimonials", "Quotes", "Videos"],
+    "success_stories": ["Success Stories", "Transformational Journeys", "Impact"],
+
+    # Advisory sub-pages
+    "crop_advisory":          ["Crop Advisory Hub", "Expert Consultations", "Soil Health"],
+    "pest_diseases_guide":    ["Pest & Diseases Guide", "Identification", "Management"],
+    "crop_calendars":         ["Crop Calendars", "Seasonal Schedules", "Harvesting"],
+
+    # About Us hub
+    "about_us": [
+        "Our Legacy", "Our Story", "Corporate Film", "Global Presence",
+        "Awards & Recognitions", "News and Articles"
+    ],
+
+    # About Us sub-pages
+    "management_team": ["Meet our key people", "Our management philosophy", "Our team members", "Contact Management"],
+    "news_and_articles": ["Recent News", "Industry Articles", "Write for us", "Subscribe for updates"],
+    "facilities":      ["Manufacturing Excellence", "Overview", "Manufacturing Facilities", "R&D", "Quality Control", "Future Scope"],
+    "life_at_heranba": ["Life at Heranba", "Culture", "Events", "Employee Stories"],
+    "why_heranba":     ["Why Heranba", "Vision", "Values", "Achievements"],
+
+    # Knowledge Centre hub
+    "knowledge_centre": ["Knowledge Hub", "Downloads", "Expert Articles", "Video Library", "Training Materials"],
+
+    # Knowledge Centre sub-pages
+    "downloads":          ["Available Downloads", "Brochures", "Catalogs", "Product Data Sheets"],
+    "expert_articles":    ["Expert Insights",     "Scientific Papers", "Agronomy Tips", "Case Studies"],
+    "video_library":      ["Video Resources",     "Product Demos", "Corporate Videos", "Training Clips"],
+    "training_materials": ["Training Hub",        "Safety Guides", "Application Manuals", "Workshops"],
 }
 
 def get_link_for_section(section_name):
@@ -179,7 +234,101 @@ def get_component_html(name, index, page_id):
     </div>
     """
 
-header_html = """<header><div class="logo-box">HERANBA</div><nav><a href="home.html">Home</a><a href="products.html">Products</a><a href="farmer_corner.html">Farmer Corner</a><a href="about_us.html">About</a><a href="contact.html">Contact</a></nav></header>"""
+header_html = """
+<header>
+  <div class="logo-box">HERANBA</div>
+  <nav>
+    <div class="nav-item"><a href="home.html">Home</a></div>
+    
+    <div class="nav-item">
+      <a href="products.html">Products <span class="caret">&#9660;</span></a>
+      <div class="dropdown">
+        <div class="dropdown-col">
+          <div class="dropdown-col-title">Formulations</div>
+          <a href="fungicides.html">Fungicides</a>
+          <a href="herbicides.html">Herbicides</a>
+          <a href="insecticides.html">Insecticides</a>
+          <a href="public_health.html">Public Health</a>
+        </div>
+        <div class="dropdown-col">
+          <div class="dropdown-col-title">Crop Nutrition</div>
+          <a href="pgr.html">PGR</a>
+          <a href="water_soluble_fertilizer.html">Water Soluble</a>
+          <a href="micro_nutrient_fertilizer.html">Micro Nutrient</a>
+          <a href="bio_fertilizer.html">Bio Fertilizer</a>
+          <a href="bio_stimulant.html">Bio Stimulant</a>
+        </div>
+        <div class="dropdown-col">
+          <div class="dropdown-col-title">Core Manufacturing</div>
+          <a href="intermediates.html">Intermediates</a>
+          <a href="technicals.html">Technicals</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-item">
+      <a href="farmer_corner.html">Farmer Corner <span class="caret">&#9660;</span></a>
+      <div class="dropdown">
+        <div class="dropdown-col">
+          <div class="dropdown-col-title">Market Info</div>
+          <a href="mandi_prices.html">Mandi Prices</a>
+          <a href="weather_forecasts.html">Weather Forecasts</a>
+          <a href="government_schemes.html">Govt Schemes</a>
+          <a href="case_studies.html">Case Studies</a>
+        </div>
+        <div class="dropdown-col">
+          <div class="dropdown-col-title">Farmer Portal</div>
+          <a href="contests.html">Contests</a>
+          <a href="farmer_programs.html">Programs</a>
+          <a href="recognition_awards.html">Awards</a>
+          <a href="heranba_farmer_community.html">Community</a>
+          <a href="farmer_testimonials.html">Testimonials</a>
+          <a href="success_stories.html">Success Stories</a>
+        </div>
+        <div class="dropdown-col">
+          <div class="dropdown-col-title">Advisory</div>
+          <a href="crop_advisory.html">Crop Advisory</a>
+          <a href="pest_diseases_guide.html">Pest &amp; Diseases</a>
+          <a href="crop_calendars.html">Crop Calendars</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-item"><a href="facilities.html">Facilities</a></div>
+    
+    <div class="nav-item">
+      <a href="knowledge_centre.html">Knowledge <span class="caret">&#9660;</span></a>
+      <div class="dropdown">
+        <div class="dropdown-col">
+          <a href="downloads.html">Downloads</a>
+          <a href="expert_articles.html">Expert Articles</a>
+          <a href="video_library.html">Video Library</a>
+          <a href="training_materials.html">Training Materials</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-item"><a href="investor_relations.html">Investors</a></div>
+
+    <div class="nav-item"><a href="media_resources.html">Media &amp; Resources</a></div>
+
+    <div class="nav-item">
+      <a href="about_us.html">About <span class="caret">&#9660;</span></a>
+      <div class="dropdown">
+        <div class="dropdown-col">
+          <a href="about_us.html">Our Story</a>
+          <a href="management_team.html">Management</a>
+          <a href="news_and_articles.html">News &amp; Articles</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="nav-item"><a href="careers.html">Careers</a></div>
+
+    <div class="nav-item"><a href="contact.html">Contact</a></div>
+  </nav>
+</header>
+"""
 footer_html = """<footer><div class="footer-col"><h4>HERANBA</h4><ul><li>High-Quality Agrochemicals</li></ul></div><div class="footer-col"><h4>Navigation</h4><ul><li><a href="home.html" style="color:#fff;">Home</a></li><li>Products</li></ul></div><div class="footer-col"><h4>Legal</h4><ul><li>Privacy Policy</li><li>Terms</li></ul></div></footer>"""
 
 base_html = """<!DOCTYPE html>
