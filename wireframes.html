@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heranba Website Wireframes</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="wireframe-container">
+        
+        <!-- HEADER COMPONENT (Shared) -->
+        <section id="components">
+            <h2 style="margin-bottom: 20px;">Master Components</h2>
+            <div class="page-wireframe" style="height: auto; padding: 20px;">
+                <div class="label">Universal Header</div>
+                <header>
+                    <div class="logo-placeholder"></div>
+                    <nav>
+                        <div class="nav-item"></div>
+                        <div class="nav-item"></div>
+                        <div class="nav-item"></div>
+                        <div class="nav-item"></div>
+                        <div class="nav-item"></div>
+                    </nav>
+                </header>
+                <div class="label" style="margin-top: 40px;">Universal Footer</div>
+                <footer>
+                    <div class="footer-col">
+                        <div class="logo-placeholder" style="background: rgba(255,255,255,0.1);"></div>
+                        <div class="footer-link"></div>
+                        <div class="footer-link"></div>
+                    </div>
+                    <div class="footer-col">
+                        <div class="footer-link" style="width: 80px;"></div>
+                        <div class="footer-link"></div>
+                        <div class="footer-link"></div>
+                        <div class="footer-link"></div>
+                    </div>
+                    <div class="footer-col">
+                        <div class="footer-link" style="width: 80px;"></div>
+                        <div class="footer-link"></div>
+                        <div class="footer-link"></div>
+                        <div class="footer-link"></div>
+                    </div>
+                    <div class="footer-col">
+                        <div class="footer-link" style="width: 80px;"></div>
+                        <div class="footer-link"></div>
+                        <div class="footer-link"></div>
+                    </div>
+                </footer>
+            </div>
+        </section>
+
+        <!-- 1. HOME PAGE -->
+        <section class="page-wireframe">
+            <span class="page-title-label">Layout 01: Home Page</span>
+            <header>
+                <div class="logo-placeholder"></div>
+                <nav><div class="nav-item"></div><div class="nav-item"></div><div class="nav-item"></div></nav>
+            </header>
+            <div class="hero">
+                <div class="hero-title"></div>
+                <div class="hero-text"></div>
+                <div class="nav-item" style="width: 120px; height: 40px; background: var(--accent-color); opacity: 0.8;"></div>
+            </div>
+            <div class="section">
+                <div class="section-title"></div>
+                <div class="grid">
+                    <div class="card"><div class="card-img"></div><div class="card-title"></div><div class="card-text"></div></div>
+                    <div class="card"><div class="card-img"></div><div class="card-title"></div><div class="card-text"></div></div>
+                    <div class="card"><div class="card-img"></div><div class="card-title"></div><div class="card-text"></div></div>
+                </div>
+            </div>
+            <div class="section" style="background: var(--placeholder-bg);">
+                <div class="content-split">
+                    <div class="content-main">
+                        <div class="section-title"></div>
+                        <div class="card-text" style="height: 100px; margin-bottom: 20px;"></div>
+                        <div class="card-text" style="height: 100px;"></div>
+                    </div>
+                    <div class="content-side">
+                        <div class="sidebar-block" style="height: 300px;"></div>
+                    </div>
+                </div>
+            </div>
+            <footer><!-- Footer content --></footer>
+        </section>
+
+        <!-- 2. PRODUCT LANDING / CATEGORY -->
+        <section class="page-wireframe">
+            <span class="page-title-label">Layout 02: Category Landing (Products, Media & Resources, Farmer Corner)</span>
+            <header><div class="logo-placeholder"></div><nav><div class="nav-item"></div><div class="nav-item"></div></nav></header>
+            <div class="section" style="height: 200px; background: var(--placeholder-bg); display: flex; align-items: center; padding: 0 40px;">
+                <div class="section-title" style="margin: 0;"></div>
+            </div>
+            <div class="section">
+                <div class="grid" style="grid-template-columns: repeat(2, 1fr);">
+                    <div class="card" style="flex-direction: row; align-items: center; gap: 30px; height: 200px;">
+                        <div class="card-img" style="width: 150px; height: 150px;"></div>
+                        <div style="flex: 1;">
+                            <div class="card-title" style="margin-bottom: 10px;"></div>
+                            <div class="card-text"></div>
+                        </div>
+                    </div>
+                    <div class="card" style="flex-direction: row; align-items: center; gap: 30px; height: 200px;">
+                        <div class="card-img" style="width: 150px; height: 150px;"></div>
+                        <div style="flex: 1;">
+                            <div class="card-title" style="margin-bottom: 10px;"></div>
+                            <div class="card-text"></div>
+                        </div>
+                    </div>
+                    <div class="card" style="flex-direction: row; align-items: center; gap: 30px; height: 200px;">
+                        <div class="card-img" style="width: 150px; height: 150px;"></div>
+                        <div style="flex: 1;">
+                            <div class="card-title" style="margin-bottom: 10px;"></div>
+                            <div class="card-text"></div>
+                        </div>
+                    </div>
+                    <div class="card" style="flex-direction: row; align-items: center; gap: 30px; height: 200px;">
+                        <div class="card-img" style="width: 150px; height: 150px;"></div>
+                        <div style="flex: 1;">
+                            <div class="card-title" style="margin-bottom: 10px;"></div>
+                            <div class="card-text"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <footer></footer>
+        </section>
+
+        <!-- 3. PRODUCT DETAIL / TECHNICALS -->
+        <section class="page-wireframe">
+            <span class="page-title-label">Layout 03: Product/Detail Page (Technicals, Intermediates)</span>
+            <header><div class="logo-placeholder"></div><nav><div class="nav-item"></div></nav></header>
+            <div class="section">
+                <div class="content-split">
+                    <div style="flex: 1;">
+                        <div class="card-img" style="aspect-ratio: 1/1;"></div>
+                    </div>
+                    <div style="flex: 1.5; display: flex; flex-direction: column; gap: 24px;">
+                        <div class="section-title" style="height: 48px; width: 80%;"></div>
+                        <div class="card-text" style="height: 20px; width: 30%; background: var(--accent-color); opacity: 0.2;"></div>
+                        <div class="card-text" style="height: 100px;"></div>
+                        <div class="grid" style="grid-template-columns: repeat(2, 1fr); gap: 20px;">
+                            <div class="sidebar-block"></div>
+                            <div class="sidebar-block"></div>
+                        </div>
+                        <div class="nav-item" style="width: 200px; height: 50px; background: var(--accent-color); opacity: 0.8;"></div>
+                    </div>
+                </div>
+            </div>
+            <div class="section" style="border-top: 1px solid var(--stroke-color);">
+                <div class="section-title" style="width: 200px;"></div>
+                <div class="card-text" style="height: 150px;"></div>
+            </div>
+            <footer></footer>
+        </section>
+
+        <!-- 4. DATA TABLE PAGE -->
+        <section class="page-wireframe">
+            <span class="page-title-label">Layout 04: Data & Financials (Mandi Prices, Disclosures, Stock Info)</span>
+            <header><div class="logo-placeholder"></div></header>
+            <div class="section">
+                <div class="section-title"></div>
+                <div style="display: flex; gap: 10px; margin-bottom: 30px;">
+                    <div class="sidebar-block" style="width: 150px; height: 40px; padding: 0;"></div>
+                    <div class="sidebar-block" style="width: 150px; height: 40px; padding: 0;"></div>
+                </div>
+                <table>
+                    <thead>
+                        <tr>
+                            <th><div class="table-row-placeholder" style="width: 100px;"></div></th>
+                            <th><div class="table-row-placeholder" style="width: 150px;"></div></th>
+                            <th><div class="table-row-placeholder" style="width: 100px;"></div></th>
+                            <th><div class="table-row-placeholder" style="width: 80px;"></div></th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr><td><div class="table-row-placeholder"></div></td><td><div class="table-row-placeholder"></div></td><td><div class="table-row-placeholder"></div></td><td><div class="table-row-placeholder"></div></td></tr>
+                        <tr><td><div class="table-row-placeholder"></div></td><td><div class="table-row-placeholder"></div></td><td><div class="table-row-placeholder"></div></td><td><div class="table-row-placeholder"></div></td></tr>
+                        <tr><td><div class="table-row-placeholder"></div></td><td><div class="table-row-placeholder"></div></td><td><div class="table-row-placeholder"></div></td><td><div class="table-row-placeholder"></div></td></tr>
+                        <tr><td><div class="table-row-placeholder"></div></td><td><div class="table-row-placeholder"></div></td><td><div class="table-row-placeholder"></div></td><td><div class="table-row-placeholder"></div></td></tr>
+                        <tr><td><div class="table-row-placeholder"></div></td><td><div class="table-row-placeholder"></div></td><td><div class="table-row-placeholder"></div></td><td><div class="table-row-placeholder"></div></td></tr>
+                    </tbody>
+                </table>
+            </div>
+            <footer></footer>
+        </section>
+
+        <!-- 5. FARMER PORTAL / DASHBOARD -->
+        <section class="page-wireframe">
+            <span class="page-title-label">Layout 05: Farmer Portal / Community Hub</span>
+            <header><div class="logo-placeholder"></div><div class="nav-item" style="border-radius: 50%; width: 40px; height: 40px;"></div></header>
+            <div style="display: flex;">
+                <div style="width: 250px; border-right: 1px solid var(--stroke-color); padding: 40px 20px; display: flex; flex-direction: column; gap: 20px;">
+                    <div class="nav-item" style="width: 100%;"></div>
+                    <div class="nav-item" style="width: 100%;"></div>
+                    <div class="nav-item" style="width: 100%;"></div>
+                    <div class="nav-item" style="width: 100%;"></div>
+                </div>
+                <div style="flex: 1; padding: 40px;">
+                    <div class="section-title" style="margin-bottom: 40px;"></div>
+                    <div class="grid" style="grid-template-columns: repeat(3, 1fr);">
+                        <div class="sidebar-block" style="height: 120px;"></div>
+                        <div class="sidebar-block" style="height: 120px;"></div>
+                        <div class="sidebar-block" style="height: 120px;"></div>
+                    </div>
+                    <div class="section-title" style="margin-top: 40px; width: 200px;"></div>
+                    <div class="card" style="height: 300px;"></div>
+                </div>
+            </div>
+            <footer></footer>
+        </section>
+
+        <!-- 6. CONTACT / FORM PAGE -->
+        <section class="page-wireframe">
+            <span class="page-title-label">Layout 06: Contact & Support (Regional Offices, Dealer Enquiry)</span>
+            <header><div class="logo-placeholder"></div></header>
+            <div class="section">
+                <div class="content-split">
+                    <div class="content-main">
+                        <div class="section-title"></div>
+                        <div style="display: flex; flex-direction: column; gap: 20px;">
+                            <div class="sidebar-block" style="height: 50px;"></div>
+                            <div class="sidebar-block" style="height: 50px;"></div>
+                            <div class="sidebar-block" style="height: 150px;"></div>
+                            <div class="nav-item" style="width: 150px; height: 45px; background: var(--accent-color); opacity: 0.8;"></div>
+                        </div>
+                    </div>
+                    <div class="content-side">
+                        <div class="section-title" style="width: 150px; height: 24px;"></div>
+                        <div class="card-text" style="height: 100px;"></div>
+                        <div class="card-img" style="height: 200px; background: var(--placeholder-bg);"></div>
+                    </div>
+                </div>
+            </div>
+            <footer></footer>
+        </section>
+
+        <!-- 7. CONTENT LIST / GRID -->
+        <section class="page-wireframe">
+            <span class="page-title-label">Layout 07: Media / Articles / Careers (Video Gallery, News, Jobs)</span>
+            <header><div class="logo-placeholder"></div></header>
+            <div class="section">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 40px;">
+                    <div class="section-title" style="margin: 0;"></div>
+                    <div class="sidebar-block" style="width: 200px; height: 40px; padding: 0;"></div>
+                </div>
+                <div class="grid" style="grid-template-columns: repeat(3, 1fr);">
+                    <div class="card"><div class="card-img"></div><div class="card-title"></div><div class="card-text"></div></div>
+                    <div class="card"><div class="card-img"></div><div class="card-title"></div><div class="card-text"></div></div>
+                    <div class="card"><div class="card-img"></div><div class="card-title"></div><div class="card-text"></div></div>
+                    <div class="card"><div class="card-img"></div><div class="card-title"></div><div class="card-text"></div></div>
+                    <div class="card"><div class="card-img"></div><div class="card-title"></div><div class="card-text"></div></div>
+                    <div class="card"><div class="card-img"></div><div class="card-title"></div><div class="card-text"></div></div>
+                </div>
+                <div style="display: flex; justify-content: center; margin-top: 60px;">
+                    <div class="nav-item" style="width: 40px; height: 40px;"></div>
+                    <div class="nav-item" style="width: 40px; height: 40px; margin-left: 10px;"></div>
+                    <div class="nav-item" style="width: 40px; height: 40px; margin-left: 10px;"></div>
+                </div>
+            </div>
+            <footer></footer>
+        </section>
+
+    </div>
+
+</body>
+</html>
