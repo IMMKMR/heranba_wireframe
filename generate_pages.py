@@ -47,7 +47,7 @@ pages_config = {
     "formulations":  ["Formulations Overview", "Crop Nutrition", "Fungicides", "Herbicides", "Insecticides", "Public Health"],
     "intermediates": ["Intermediates Overview", "Showcase", "Technical Specs", "Inquiry"],
     "technicals":    ["Technicals Overview",    "Showcase", "Technical Specs", "Inquiry"],
-    "crop_nutrition": ["Crop Nutrition Hub", "Bio Stimulant", "Bio Fertilizer", "Micro Nutrient Fertilizer", "Water Soluble Fertilizer", "PGR"],
+    "crop_nutrition": ["Crop Nutrition Hub", "Bio Stimulant", "Bio Fertilizer", "Micro Nutrient Fertilizer", "Water Soluble", "PGR"],
     "bio_stimulant":           ["Bio Stimulants",      "Intro", "Products", "Usage"],
     "bio_fertilizer":          ["Bio Fertilizer",      "Intro", "Products", "Usage"],
     "micro_nutrient_fertilizer": ["Micro Nutrients",   "Intro", "Products", "Usage"],
@@ -252,11 +252,11 @@ header_html = """
         </div>
         <div class="dropdown-col">
           <div class="dropdown-col-title">Crop Nutrition</div>
-          <a href="pgr.html">PGR</a>
-          <a href="water_soluble_fertilizer.html">Water Soluble</a>
-          <a href="micro_nutrient_fertilizer.html">Micro Nutrient</a>
-          <a href="bio_fertilizer.html">Bio Fertilizer</a>
           <a href="bio_stimulant.html">Bio Stimulant</a>
+          <a href="bio_fertilizer.html">Bio Fertilizer</a>
+          <a href="micro_nutrient_fertilizer.html">Micro Nutrient Fertilizer</a>
+          <a href="water_soluble_fertilizer.html">Water Soluble</a>
+            <a href="pgr.html">PGR</a>
         </div>
         <div class="dropdown-col">
           <div class="dropdown-col-title">Core Manufacturing</div>
@@ -329,7 +329,78 @@ header_html = """
   </nav>
 </header>
 """
-footer_html = """<footer><div class="footer-col"><h4>HERANBA</h4><ul><li>High-Quality Agrochemicals</li></ul></div><div class="footer-col"><h4>Navigation</h4><ul><li><a href="home.html" style="color:#fff;">Home</a></li><li>Products</li></ul></div><div class="footer-col"><h4>Legal</h4><ul><li>Privacy Policy</li><li>Terms</li></ul></div></footer>"""
+footer_html = """
+<footer class="footer-wireframe">
+    <div class="footer-main-grid">
+        <!-- Section: Newsletter -->
+        <div class="footer-section-box newsletter-col">
+            <div>
+                <span class="wireframe-label">Newsletter Component</span>
+                <div class="text-placeholder ph-h2"></div>
+                <div class="text-placeholder ph-h2" style="width: 85%;"></div>
+            </div>
+            <div>
+                <div class="subscribe-box">
+                    <div class="text-placeholder ph-link" style="margin: 10px; width: 120px; background: transparent; border: 1px dashed #ccc;"></div>
+                    <button>SUBSCRIBE</button>
+                </div>
+                <div class="text-placeholder ph-p short"></div>
+            </div>
+        </div>
+
+        <!-- Section: Contact Info -->
+        <div class="footer-section-box contact-col">
+            <div class="location-section">
+                <span class="wireframe-label">Location Block</span>
+                <div class="text-placeholder ph-h3"></div>
+                <div class="text-placeholder ph-p"></div>
+                <div class="text-placeholder ph-p medium"></div>
+            </div>
+            <div class="hello-section">
+                <span class="wireframe-label">Contact Block</span>
+                <div class="text-placeholder ph-h3"></div>
+                <div class="text-placeholder ph-h1" style="width: 100%; margin-top: 10px;"></div>
+            </div>
+        </div>
+
+        <!-- Section: Links -->
+        <div class="footer-section-box links-col">
+            <div>
+                <span class="wireframe-label">Navigation Links</span>
+                <div class="text-placeholder ph-h3"></div>
+                <div class="links-grid">
+                    <div class="link-item"><div class="text-placeholder ph-link"></div></div>
+                    <div class="link-item"><div class="text-placeholder ph-link" style="width: 60px;"></div></div>
+                    <div class="link-item"><div class="text-placeholder ph-link" style="width: 90px;"></div></div>
+                    <div class="link-item"><div class="text-placeholder ph-link" style="width: 70px;"></div></div>
+                    <div class="link-item"><div class="text-placeholder ph-link" style="width: 50px;"></div></div>
+                    <div class="link-item"><div class="text-placeholder ph-link" style="width: 85px;"></div></div>
+                    <div class="link-item"><div class="text-placeholder ph-link" style="width: 75px;"></div></div>
+                    <div class="link-item"><div class="text-placeholder ph-link" style="width: 65px;"></div></div>
+                </div>
+            </div>
+            <div class="social-links">
+                <span class="wireframe-label">Social Media</span>
+                <div class="social-icons-row">
+                    <div class="social-circle"></div>
+                    <div class="social-circle"></div>
+                    <div class="social-circle"></div>
+                    <div class="social-circle"></div>
+                    <div class="social-circle"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Bottom Bar -->
+    <div class="footer-bottom-bar">
+        <div class="brand-logo">
+            <div class="logo-icon"></div>
+            <div class="text-placeholder ph-h3" style="width: 120px; margin-bottom: 0;"></div>
+        </div>
+        <div class="text-placeholder ph-p medium" style="width: 300px; margin-bottom: 0;"></div>
+    </div>
+</footer>
+"""
 
 base_html = """<!DOCTYPE html>
 <html lang="en">

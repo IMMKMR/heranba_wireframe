@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Heranba Footer Wireframe Preview</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700;800;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-color: #f5f5f5;
+            --wireframe-bg: #ffffff;
+            --stroke-color: #000000;
+            --box-color: #e0e0e0;
+            --text-primary: #000000;
+            --text-secondary: #333333;
+            --accent-color: #000000;
+            --radius: 0px;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; }
+        
+        body {
+            background-color: var(--bg-color);
+            padding: 80px 40px;
+            color: var(--text-primary);
+        }
+
+        .preview-container {
+            max-width: 1300px;
+            margin: 0 auto;
+        }
+
+        /* The Footer Component */
+        .footer-wireframe {
+            background: var(--box-color);
+            border: 2px solid #000;
+            border-radius: 0px; /* Rectangular as requested */
+            padding: 40px;
+            position: relative;
+            box-shadow: 8px 8px 0px #000; /* Neobrutalist shadow */
+        }
+
+        .footer-main-grid {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr 1fr;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+
+        /* Internal Boxes */
+        .footer-section-box {
+            border: 2px solid #000;
+            background: #fff;
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* Column 1: Newsletter */
+        .newsletter-col h2 {
+            font-size: 22px;
+            font-weight: 800;
+            line-height: 1.2;
+            margin-bottom: 25px;
+            letter-spacing: -0.5px;
+        }
+
+        .subscribe-box {
+            display: flex;
+            align-items: center;
+            background: #f5f5f5;
+            border: 2px solid #000;
+            border-radius: 0px; /* Rectangular */
+            padding: 2px;
+            margin-bottom: 15px;
+        }
+
+        .subscribe-box input {
+            flex: 1;
+            background: transparent;
+            border: none;
+            padding: 10px 15px;
+            font-size: 13px;
+            outline: none;
+            font-weight: 500;
+        }
+
+        .subscribe-box button {
+            background: #000;
+            color: #fff;
+            border: none;
+            padding: 10px 20px;
+            font-weight: 800;
+            cursor: pointer;
+            text-transform: uppercase;
+            font-size: 11px;
+            letter-spacing: 1px;
+        }
+
+        .privacy-text {
+            font-size: 11px;
+            font-weight: 500;
+            opacity: 0.8;
+        }
+        .privacy-text span {
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        /* Column Titles */
+        .col-title {
+            font-size: 16px;
+            font-weight: 900;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            border-bottom: 2px solid #000;
+            padding-bottom: 5px;
+            display: inline-block;
+        }
+
+        /* Column 2: Contact */
+        .location-section, .hello-section {
+            margin-bottom: 30px;
+        }
+
+        .location-section p, .hello-section p {
+            font-size: 13px;
+            line-height: 1.5;
+            font-weight: 500;
+            opacity: 0.9;
+        }
+
+        .contact-numbers {
+            font-size: 16px !important;
+            font-weight: 800 !important;
+            margin-top: 10px;
+            line-height: 1.2 !important;
+        }
+
+        /* Column 3: Links */
+        .links-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* 2 columns for better fit in box */
+            gap: 10px;
+        }
+
+        .link-item {
+            font-size: 12px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            cursor: pointer;
+        }
+        .link-item:hover {
+            text-decoration: underline;
+        }
+
+        .social-links {
+            margin-top: 30px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd;
+        }
+
+        .social-icons-row {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-circle {
+            width: 32px;
+            height: 32px;
+            background: #fff;
+            border: 2px solid #000;
+            border-radius: 0px; /* Rectangular */
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 900;
+            font-size: 10px;
+            cursor: pointer;
+        }
+
+        /* Bottom Bar */
+        .footer-bottom-bar {
+            background: #fff;
+            border: 2px solid #000;
+            border-radius: 0px;
+            padding: 20px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            box-shadow: 6px 6px 0px #000;
+        }
+
+        .brand-logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            font-weight: 900;
+            font-size: 20px;
+            letter-spacing: 1px;
+        }
+
+        .logo-icon {
+            width: 28px;
+            height: 28px;
+            border: 2px solid #000;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .logo-icon::after {
+            content: '';
+            width: 10px;
+            height: 10px;
+            background: #000;
+        }
+
+        .copyright-text {
+            font-size: 13px;
+            font-weight: 600;
+            opacity: 0.6;
+        }
+
+        /* Labels for wireframe */
+        .wireframe-label {
+            display: inline-block;
+            background: #000;
+            color: #fff;
+            padding: 4px 12px;
+            font-size: 10px;
+            font-weight: 900;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+            border-radius: 4px;
+        }
+
+        .copyright-text {
+            font-size: 13px;
+            font-weight: 600;
+            opacity: 0.6;
+        }
+
+        /* Text Placeholders */
+        .text-placeholder {
+            background: #eee;
+            height: 12px;
+            margin-bottom: 8px;
+            border-radius: 2px;
+        }
+        .ph-h1 { height: 24px; width: 90%; background: #ddd; margin-bottom: 15px; }
+        .ph-h2 { height: 20px; width: 70%; background: #ddd; margin-bottom: 15px; }
+        .ph-h3 { height: 16px; width: 50%; background: #ddd; margin-bottom: 15px; }
+        .ph-p { width: 100%; }
+        .ph-p.short { width: 60%; }
+        .ph-p.medium { width: 80%; }
+        .ph-link { width: 80px; height: 10px; margin-bottom: 0; }
+
+    </style>
+</head>
+<body>
+
+    <div class="preview-container">
+        
+        <div style="margin-bottom: 40px;">
+            <h1 style="font-size: 40px; font-weight: 900; border-bottom: 5px solid #000; display: inline-block; padding-bottom: 10px; margin-bottom: 10px;">FOOTER WIREFRAME PROPOSAL</h1>
+            <p style="font-weight: 600; opacity: 0.7;">Placeholder version: Using rectangular boxes to represent content elements.</p>
+        </div>
+
+        <!-- THE FOOTER -->
+        <footer class="footer-wireframe">
+            
+            <div class="footer-main-grid">
+                
+                <!-- Section: Newsletter -->
+                <div class="footer-section-box newsletter-col">
+                    <div>
+                        <span class="wireframe-label">Newsletter Component</span>
+                        <div class="text-placeholder ph-h2"></div>
+                        <div class="text-placeholder ph-h2" style="width: 85%;"></div>
+                    </div>
+                    
+                    <div>
+                        <div class="subscribe-box">
+                            <div class="text-placeholder ph-link" style="margin: 10px; width: 120px; background: transparent; border: 1px dashed #ccc;"></div>
+                            <button>SUBSCRIBE</button>
+                        </div>
+                        
+                        <div class="text-placeholder ph-p short"></div>
+                    </div>
+                </div>
+
+                <!-- Section: Contact Info -->
+                <div class="footer-section-box contact-col">
+                    <div class="location-section">
+                        <span class="wireframe-label">Location Block</span>
+                        <div class="text-placeholder ph-h3"></div>
+                        <div class="text-placeholder ph-p"></div>
+                        <div class="text-placeholder ph-p medium"></div>
+                        <div class="text-placeholder ph-p short"></div>
+                    </div>
+
+                    <div class="hello-section">
+                        <span class="wireframe-label">Contact Block</span>
+                        <div class="text-placeholder ph-h3"></div>
+                        <div class="text-placeholder ph-p medium"></div>
+                        <div class="text-placeholder ph-h1" style="width: 100%; margin-top: 10px;"></div>
+                    </div>
+                </div>
+
+                <!-- Section: Links -->
+                <div class="footer-section-box links-col">
+                    <div>
+                        <span class="wireframe-label">Navigation Links</span>
+                        <div class="text-placeholder ph-h3"></div>
+                        
+                        <div class="links-grid">
+                            <div class="link-item"><div class="text-placeholder ph-link"></div></div>
+                            <div class="link-item"><div class="text-placeholder ph-link" style="width: 60px;"></div></div>
+                            <div class="link-item"><div class="text-placeholder ph-link" style="width: 90px;"></div></div>
+                            <div class="link-item"><div class="text-placeholder ph-link" style="width: 70px;"></div></div>
+                            <div class="link-item"><div class="text-placeholder ph-link" style="width: 50px;"></div></div>
+                            <div class="link-item"><div class="text-placeholder ph-link" style="width: 85px;"></div></div>
+                            <div class="link-item"><div class="text-placeholder ph-link" style="width: 75px;"></div></div>
+                            <div class="link-item"><div class="text-placeholder ph-link" style="width: 65px;"></div></div>
+                            <div class="link-item"><div class="text-placeholder ph-link" style="width: 95px;"></div></div>
+                        </div>
+                    </div>
+
+                    <div class="social-links">
+                        <span class="wireframe-label">Social Media</span>
+                        <div class="social-icons-row">
+                            <div class="social-circle"></div>
+                            <div class="social-circle"></div>
+                            <div class="social-circle"></div>
+                            <div class="social-circle"></div>
+                            <div class="social-circle"></div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="footer-bottom-bar">
+                <div class="brand-logo">
+                    <div class="logo-icon"></div>
+                    <div class="text-placeholder ph-h3" style="width: 120px; margin-bottom: 0;"></div>
+                </div>
+                <div class="text-placeholder ph-p medium" style="width: 300px; margin-bottom: 0;"></div>
+            </div>
+
+        </footer>
+
+    </div>
+
+</body>
+</html>
