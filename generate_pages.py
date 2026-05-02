@@ -84,8 +84,14 @@ pages_config = {
 
     # About Us hub
     "about_us": [
-        "Our Legacy", "Our Story", "Corporate Film", "Global Presence",
-        "Awards & Recognitions", "News and Articles"
+        "Our Story", 
+        "Our Journey", 
+        "Corporate Film", 
+        "Global Presence",
+        "Leadership Team", 
+        "Meet the Management", 
+        "Awards & Recognitions", 
+        "News and Articles"
     ],
 
     # About Us sub-pages
@@ -111,6 +117,85 @@ def get_link_for_section(section_name):
     return f"#{normalized}"
 
 def get_component_html(name, index, page_id):
+    # --- ABOUT US SPECIFIC OVERRIDES ---
+    if page_id == "about_us":
+        redirects = {
+            "Leadership Team": "leadership_team.html",
+            "Meet the Management": "management_team.html",
+            "News and Articles": "news_and_articles.html"
+        }
+        anchor_id = name.lower().replace(" ", "_").replace("&", "and").replace("-", "_")
+        
+        if name in redirects:
+            if any(x in name.lower() for x in ["team", "leadership", "management"]):
+                # For team sections, use grid layout + Know More button
+                cards = "".join([f'<div class="card" style="text-align: center;"><div class="card-img" style="aspect-ratio: 1/1; border-radius: 50%;"></div><div class="card-title">Executive Name {i+1}</div><div class="card-desc">Designation & Brief Bio</div></div>' for i in range(3)])
+                return f'''
+        <div class="section" id="{anchor_id}">
+            <div class="section-header"><h2 class="section-title">{name}</h2></div>
+            <div class="grid-3">
+                {cards}
+            </div>
+            <div style="margin-top: 40px; text-align: center;">
+                <a href="{redirects[name]}" class="btn" style="display:inline-block; text-decoration:none; background:#000; color:#fff; padding:12px 35px; font-weight:600; border: 2px solid #000; transition: all 0.3s ease;">Know More</a>
+            </div>
+        </div>
+                '''
+            else:
+                # For other redirects (like News and Articles), use split-content
+                return f'''
+        <div class="section" id="{anchor_id}">
+            <div class="split-content">
+                <div class="split-text">
+                    <h2 class="section-title">{name}</h2>
+                    <p style="margin-bottom: 20px; line-height: 1.6; font-size: 18px;">Detailed information about our {name}. Click the button below to visit the dedicated section and learn more about our commitment and expertise.</p>
+                    <a href="{redirects[name]}" class="btn" style="display:inline-block; text-decoration:none; background:#000; color:#fff; padding:12px 35px; font-weight:600; border: 2px solid #000; transition: all 0.3s ease;">Know More</a>
+                </div>
+                <div class="split-media" style="background: #e0e0e0; border: 2px solid #000; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #666;">{name} Visual Placeholder</div>
+            </div>
+        </div>
+                '''
+        
+        if name == "Our Journey":
+            return f'''
+        <div class="section" id="our_journey_film">
+            <div class="split-content split-reverse">
+                <div class="split-text">
+                    <h2 class="section-title">{name}</h2>
+                    <p style="margin-bottom: 20px; line-height: 1.6; font-size: 18px;">Our Journey is a testament to our growth and evolution. This section highlights the key milestones and the path we have traversed to become a leader in the industry.</p>
+                    <div style="margin-top: 20px; padding: 15px; border-left: 4px solid #000; background: #f9f9f9;">
+                        <h4 style="margin-bottom: 10px;">Sub section of Our journey</h4>
+                        <p style="font-size: 14px; color: #555;">Detailed breakdown of our milestones and historical growth phases that shaped our legacy over the decades.</p>
+                    </div>
+                </div>
+                <div class="split-media" style="background: #e0e0e0; border: 2px solid #000; display: flex; align-items: center; justify-content: center; font-weight: bold; color: #666;">Milestones Timeline</div>
+            </div>
+
+            <div class="section-header" id="corporate_film" style="margin-top: 40px; margin-bottom: 20px;"><h3 class="section-title" style="font-size: 24px;">Corporate Film</h3></div>
+            <div class="grid-3" style="gap: 20px;">
+                <div class="card" style="padding: 10px; border: 1px solid #eee;">
+                    <div class="card-img" style="margin-bottom: 10px;"></div>
+                    <div class="card-title" style="font-size: 16px; font-weight: 700;">Default Item</div>
+                    <div class="card-desc" style="font-size: 13px;">Generic description for Corporate Film.</div>
+                </div>
+                <div class="card" style="padding: 10px; border: 1px solid #eee;">
+                    <div class="card-img" style="margin-bottom: 10px;"></div>
+                    <div class="card-title" style="font-size: 16px; font-weight: 700;">Default Item</div>
+                    <div class="card-desc" style="font-size: 13px;">Generic description for Corporate Film.</div>
+                </div>
+                <div class="card" style="padding: 10px; border: 1px solid #eee;">
+                    <div class="card-img" style="margin-bottom: 10px;"></div>
+                    <div class="card-title" style="font-size: 16px; font-weight: 700;">Default Item</div>
+                    <div class="card-desc" style="font-size: 13px;">Generic description for Corporate Film.</div>
+                </div>
+            </div>
+        </div>
+            '''
+        
+        if name == "Corporate Film":
+            return ""
+    # -----------------------------------
+
     lower_name = name.lower()
     anchor_id = name.lower().replace(" ", "_").replace("&", "and").replace("-", "_")
     
@@ -128,7 +213,7 @@ def get_component_html(name, index, page_id):
         """
 
     # 3. SPLIT CONTENT (Alternating layouts)
-    if any(x in lower_name for x in ["about", "story", "legacy", "philosophy", "overview", "intro", "guide", "expert", "innovation", "bio", "stimulant", "fertilizer", "pgr", "fungicide", "herbicide", "insecticide", "solutions"]):
+    if any(x in lower_name for x in ["about", "story", "legacy", "journey", "philosophy", "overview", "intro", "guide", "expert", "innovation", "bio", "stimulant", "fertilizer", "pgr", "fungicide", "herbicide", "insecticide", "solutions"]):
         reverse = "split-reverse" if index % 2 != 0 else ""
         return f"""
         <div class="section" id="{anchor_id}">
@@ -239,7 +324,16 @@ header_html = """
   <div class="logo-box">HERANBA</div>
   <nav>
     <div class="nav-item"><a href="home.html">Home</a></div>
-    
+    <div class="nav-item">
+      <a href="about_us.html">About <span class="caret">&#9660;</span></a>
+      <div class="dropdown">
+        <div class="dropdown-col">
+          <a href="about_us.html">Our Story</a>
+          <a href="management_team.html">Management</a>
+          <a href="news_and_articles.html">News &amp; Articles</a>
+        </div>
+      </div>
+    </div>
     <div class="nav-item">
       <a href="products.html">Products <span class="caret">&#9660;</span></a>
       <div class="dropdown">
@@ -256,7 +350,7 @@ header_html = """
           <a href="bio_fertilizer.html">Bio Fertilizer</a>
           <a href="micro_nutrient_fertilizer.html">Micro Nutrient Fertilizer</a>
           <a href="water_soluble_fertilizer.html">Water Soluble</a>
-            <a href="pgr.html">PGR</a>
+          <a href="pgr.html">PGR</a>
         </div>
         <div class="dropdown-col">
           <div class="dropdown-col-title">Core Manufacturing</div>
@@ -295,7 +389,7 @@ header_html = """
     </div>
 
     <div class="nav-item"><a href="facilities.html">Facilities</a></div>
-    
+
     <div class="nav-item">
       <a href="knowledge_centre.html">Knowledge <span class="caret">&#9660;</span></a>
       <div class="dropdown">
@@ -312,23 +406,13 @@ header_html = """
 
     <div class="nav-item"><a href="media_resources.html">Media &amp; Resources</a></div>
 
-    <div class="nav-item">
-      <a href="about_us.html">About <span class="caret">&#9660;</span></a>
-      <div class="dropdown">
-        <div class="dropdown-col">
-          <a href="about_us.html">Our Story</a>
-          <a href="management_team.html">Management</a>
-          <a href="news_and_articles.html">News &amp; Articles</a>
-        </div>
-      </div>
-    </div>
-
     <div class="nav-item"><a href="careers.html">Careers</a></div>
 
     <div class="nav-item"><a href="contact.html">Contact</a></div>
   </nav>
 </header>
 """
+
 footer_html = """
 <footer class="footer-wireframe">
     <div class="footer-main-grid">
